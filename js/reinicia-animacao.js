@@ -7,26 +7,26 @@
 // jQuery e usando "vanilla" JavaScript (JavaScript "puro")
 
 
-// se tivermos jQuery, usa-lo
+// se tivermos jQuery incluído na página, vamos usa-lo
 if (typeof $ !== 'undefined') {
   // pega o elemento que contém o texto com a intro do filme
-  let $introTextEl = $('.flow > pre');
+  let $introTextEl = $('.container > pre');
 
   // atribui um evento de clique à <nav id="movies"></nav>, mas que vai
   // disparar apenas se o que for clicado for um <li></li>
   // (isso chama "event delegation")
   //
-  $('#movies').on('click', 'li', function(e) {
-    // remove a classe ".reading-animation", que faz o texto subir
-    $introTextEl.removeClass('reading-animation');
+  $('#filmes').on('click', 'li', function(e) {
+    // remove a classe ".animacao-subindo", que faz o texto subir
+    $introTextEl.removeClass('animacao-subindo');
     // define a propriedade visibility como hidden para evitar que o usuário
     // veja a animação sendo interrompida
     $introTextEl.css('visibility', 'hidden');
 
     // daqui 0ms (no próximo "tick" de atualização), devolver a classe
-    // ".reading-animation" e tornar o texto visível novamente
+    // ".animacao-subindo" e tornar o texto visível novamente
     setTimeout(function() {
-      $introTextEl.addClass('reading-animation');
+      $introTextEl.addClass('animacao-subindo');
       $introTextEl.css('visibility', 'visible');
     }, 0);
   });
@@ -37,22 +37,22 @@ if (typeof $ !== 'undefined') {
 // se não tiver jQuery, fazer com vanilla javascript
 else {
   // pega o elemento que contém o texto com a intro do filme
-  let introTextEl = document.querySelector('.flow > pre');
+  let introTextEl = document.querySelector('.container > pre');
 
   // atribui um evento de clique à <nav id="movies"></nav>
-  document.querySelector('#movies').addEventListener('click', function(e) {
+  document.querySelector('#filmes').addEventListener('click', function(e) {
     // queremos apenas cliques cujo alvo foram <li></li>
     if (e.currentTarget.matches('li')) {
-      // remove a classe ".reading-animation", que faz o texto subir
-      introTextEl.classList.remove('reading-animation');
+      // remove a classe ".animacao-subindo", que faz o texto subir
+      introTextEl.classList.remove('animacao-subindo');
       // define a propriedade visibility como hidden para evitar que o usuário
       // veja a animação sendo interrompida
       introTextEl.style.visibility = 'hidden';
 
       // daqui 0ms (no próximo "tick" de atualização), devolver a classe
-      // ".reading-animation" e tornar o texto visível novamente
+      // ".animacao-subindo" e tornar o texto visível novamente
       setTimeout(function() {
-        introTextEl.classList.add('reading-animation');
+        introTextEl.classList.add('animacao-subindo');
         introTextEl.style.visibility = 'visible';
       }, 0);
     }

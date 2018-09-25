@@ -1,4 +1,4 @@
-html, body, .container {
+html, body, main {
   height: 100%;
 }
 
@@ -8,7 +8,7 @@ body {
   background-image: url(imgs/stars.gif);
 }
 
-.container {
+main {
   perspective: 200px;
   perspective-origin: 50% 0;
   text-align: center;
@@ -16,14 +16,14 @@ body {
   mask-image: linear-gradient(to bottom, transparent, black 16%);
 }
 
-.flow {
+.container {
   transform-origin: 50% 0%;
   transform-style: preserve-3d;
   transform: rotateX(75deg);
 }
 
-.flow > pre {
-  font-family: "Arial", sans-serif;
+.container > pre {
+  font-family: "Arial", "FreeSans", sans-serif;
   color: #ffd61d;
   font-weight: bold;
   font-size: 40px;
@@ -32,11 +32,11 @@ body {
   line-height: 1.1em;
 }
 
-.reading-animation {
-  animation: reading 50s linear 0s infinite forwards;
+.animacao-subindo {
+  animation: subindo 50s linear 0s infinite forwards;
 }
 
-@keyframes reading {
+@keyframes subindo {
   from {
     transform: translate3d(0, 0px, -200px);
   }
@@ -45,7 +45,7 @@ body {
   }
 }
 
-#movies {
+#filmes {
   position: absolute;
   left: 20px;
   top: 20px;
@@ -53,14 +53,14 @@ body {
   color: white;
 }
 
-#movies li {
+#filmes li {
   list-style-type: none;
   padding-right: 20px;
   cursor: pointer;
   font-family: 'Courier New', monospace;
 }
 
-#movies li:hover {
+#filmes li:hover {
   color: cornflowerblue;
   text-decoration: underline;
 }
